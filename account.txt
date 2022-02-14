@@ -1,0 +1,3 @@
+admin,admin,123456
+technician,mike,147258
+customer,dave,258369
