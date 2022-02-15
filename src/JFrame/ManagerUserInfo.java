@@ -1,49 +1,12 @@
 package JFrame;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
-import sun.security.util.Password;
 import utils.ReadFile;
 
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author 86183
- */
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
-/**
- *
- * @author 86183
- */
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
-/**
- *
- * @author 86183
- */
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
-/**
- *
- * @author 86183
  */
 public class ManagerUserInfo extends javax.swing.JFrame {
 
@@ -168,18 +131,15 @@ public class ManagerUserInfo extends javax.swing.JFrame {
     private void LoadButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         ReadFile rf = new ReadFile();
-        JTable table;
         List<String> list = rf.readTxtFile("register.txt");
-        Object[] columnTitle = {"Username" , "Password"};
         for (String info : list) {
             if (!list.isEmpty()) {
                 String[] info2 = info.split(",");
-                Object[][] tableData =new Object[][];
 
-                table=new JTable(columnTitle,info);
-                InfoTable.add()
             }
         }
+
+    }
 
     private void jLabel1AncestorAdded(javax.swing.event.AncestorEvent evt) {
         // TODO add your handling code here:
@@ -233,5 +193,7 @@ public class ManagerUserInfo extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     // End of variables declaration
 }
+
+
 
 

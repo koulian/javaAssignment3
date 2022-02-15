@@ -1,7 +1,5 @@
 package controller;
 
-import JFrame.MainInterface;
-import pojo.User;
 import utils.ReadFile;
 
 import java.util.List;
