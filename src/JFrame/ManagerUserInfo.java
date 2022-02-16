@@ -1,12 +1,18 @@
 package JFrame;
 
-import utils.ReadFile;
-
-import java.util.List;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+
+import utils.ReadFile;
+
+import javax.swing.table.DefaultTableModel;
+import java.util.List;
+
+/**
+ *
+ * @author 86183
  */
 public class ManagerUserInfo extends javax.swing.JFrame {
 
@@ -59,6 +65,11 @@ public class ManagerUserInfo extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         ReturnButton.setText("Return");
+        ReturnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReturnButtonActionPerformed(evt);
+            }
+        });
 
         LoadButton.setText("load");
         LoadButton.addActionListener(new java.awt.event.ActionListener() {
@@ -80,17 +91,10 @@ public class ManagerUserInfo extends javax.swing.JFrame {
 
         InfoTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
-                        {null, null},
-                        {null, null},
-                        {null, null},
-                        {null, null},
-                        {null, null},
-                        {null, null},
-                        {null, null},
-                        {null, null}
+
                 },
                 new String [] {
-                        "username", "password"
+                        "UserType", "Username", "Password"
                 }
         ));
         jScrollPane3.setViewportView(InfoTable);
@@ -131,12 +135,16 @@ public class ManagerUserInfo extends javax.swing.JFrame {
     private void LoadButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         ReadFile rf = new ReadFile();
-        List<String> list = rf.readTxtFile("register.txt");
+        List<String> list = rf.readTxtFile("account.txt");
         for (String info : list) {
             if (!list.isEmpty()) {
                 String[] info2 = info.split(",");
 
+
+                DefaultTableModel tableModel = (DefaultTableModel) this.InfoTable.getModel();
+                tableModel.addRow(info2);
             }
+
         }
 
     }
@@ -144,6 +152,15 @@ public class ManagerUserInfo extends javax.swing.JFrame {
     private void jLabel1AncestorAdded(javax.swing.event.AncestorEvent evt) {
         // TODO add your handling code here:
     }
+
+    private void ReturnButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        String order = ReturnButton.getText();
+        if (order=="Return"){
+            new CustomerFunc().setVisible(true);
+        }
+    }
+
 
     /**
      * @param args the command line arguments

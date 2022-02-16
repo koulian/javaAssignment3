@@ -1,3 +1,6 @@
 admin,admin,123456
-technician,mike,147258
-customer,dave,258369
+technician,james,123456
+customer,dave,123456
+
+customer,zhang,2020
+customer,zhang,123456

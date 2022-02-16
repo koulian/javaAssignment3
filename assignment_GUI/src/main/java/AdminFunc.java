@@ -50,7 +50,7 @@ public class AdminFunc extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setForeground(new java.awt.Color(204, 255, 204));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Help customers register", "Manage customer booking service" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Help customers register", "Help book appliance service appointments", "View user registration information." }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -71,6 +71,11 @@ public class AdminFunc extends javax.swing.JFrame {
         });
 
         Rbutton.setText("Return");
+        Rbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RbuttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -135,9 +140,13 @@ public class AdminFunc extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void CbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CbuttonActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:确定
 
     }//GEN-LAST:event_CbuttonActionPerformed
+
+    private void RbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RbuttonActionPerformed
+        // TODO add your handling code here:返回
+    }//GEN-LAST:event_RbuttonActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,6 +5,14 @@ package JFrame;
 import controller.Login;
 
 import javax.swing.JOptionPane;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -65,7 +73,11 @@ public class MainInterface extends javax.swing.JFrame {
         });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                try {
+                    jButton1ActionPerformed(evt);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -145,7 +157,7 @@ public class MainInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         // TODO add your handling code here:
         boolean flag = false;
         String Username = txtUsername.getText();
@@ -163,19 +175,30 @@ public class MainInterface extends javax.swing.JFrame {
             }else if (type=="customer"){
                 new CustomerFunc().setVisible(true);
             }
-        }
-
-
-        else{
+        } else{
             JOptionPane.showMessageDialog(null,"Invalid message, please log in again!","Prompt window",JOptionPane.INFORMATION_MESSAGE);
 
         }
-
-
-
-
-
+        SimpleDateFormat df = new SimpleDateFormat("MM-dd HH:mm:ss");
+        File file=new File("Login_record.txt");
+        if (!file.exists()){
+            file.createNewFile();
+        }
+        FileWriter fw=new FileWriter(file,true);
+        fw.write(type+"\r\n");
+        fw.write(df.format(new Date())+"\r\n");
+        int count=0;//Counting Login Times
+        fw.close();
     }
+
+
+
+
+
+
+
+
+
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
@@ -228,6 +251,7 @@ public class MainInterface extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+
                 new MainInterface().setVisible(true);
             }
         });
